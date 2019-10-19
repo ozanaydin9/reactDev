@@ -58,7 +58,6 @@ class Ads extends React.Component {
 
                 </Header>
                 <Content style={{position: 'absolute', top: '70px', bottom: '70px', width: '100%', overflow: 'auto'}}>
-                    <br/>
                     <div style={{background: '#fff', padding: 24, minHeight: 280}}>
                         <AdsTable ilan={this.state.ilan}/>
                         <Pagination onChange={this.handlePageClick}
