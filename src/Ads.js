@@ -31,7 +31,7 @@ class Ads extends React.Component {
         this.setState({isLoading: true});
         fetch(`https://devakademi.sahibinden.com/api/auctions?offset=${this.state.offset}&size=10`)
             .then(response => response.json())
-            .then(ilan => this.setState({ilan: ilan, total: ilan.totalPages * 10, isLoading: false}));
+            .then(ilan => this.setState({ilan: ilan, total: 2000, isLoading: false}));
     }
 
     render() {
