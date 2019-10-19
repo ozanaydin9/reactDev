@@ -1,37 +1,28 @@
 import React from 'react';
-import {Layout, Pagination} from 'antd';
-import AdsTable from "./AdsTable";
+import {Button, Layout} from 'antd';
 import Loading from "./Loading";
 import logo from './assets/sahibinden.png';
-
+import { Card } from 'antd';
 
 const {Header, Content, Footer} = Layout;
 
-class Ads extends React.Component {
+class ShowAd extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {ilan: [], offset: '0', page: '1', isLoading: true};
-        this.loadAdsFromServer = this.loadAdsFromServer.bind(this);
+        this.state = {ilan: [], id: '',};
     }
 
     componentDidMount() {
-        this.loadAdsFromServer();
-    }
-
-    handlePageClick = selected => {
-        this.setState({page: selected});
-        this.setState({offset: (selected - 1) * 10}, () => {
-            this.loadAdsFromServer()
-        })
+        fetch('https://devakademi.sahibinden.com/api/auction?id=' + this.props.match.params.id)
+            .then(response => {
+                return response.json();
+            }).then(result => {
+            console.log(result);
+            this.setState({ilan: result});
+        });
     };
 
-    loadAdsFromServer() {
-        this.setState({isLoading: true});
-        fetch(`https://devakademi.sahibinden.com/api/auctions?offset=${this.state.offset}&size=10`)
-            .then(response => response.json())
-            .then(ilan => this.setState({ilan: ilan, total: 2000, isLoading: false}));
-    }
 
     render() {
         if (this.state.isLoading) {
@@ -51,7 +42,7 @@ class Ads extends React.Component {
 
                     <div id="logo">
                         <a href="/">
-                            <img src={logo} alt="Logo"/>
+                        <img  src={logo} alt="Logo"/>
                         </a>
                     </div>
 
@@ -59,11 +50,15 @@ class Ads extends React.Component {
                 </Header>
                 <Content style={{position: 'absolute', top: '70px', bottom: '70px', width: '100%', overflow: 'auto'}}>
                     <br/>
-                    <div style={{background: '#fff', padding: 24, minHeight: 280}}>
-                        <AdsTable ilan={this.state.ilan}/>
-                        <Pagination onChange={this.handlePageClick}
-                                    defaultCurrent={this.state.page}
-                                    total={this.state.total}/>
+                    <div style={{position: 'absolute', left:'37%', padding: 24, minHeight: 280, textAlign:"center"}}>
+
+                        <Card style={{ width: 300, textAlign:"center"}}>
+                            <p> <h1>{this.state.ilan.title}</h1></p>
+                            <p>{this.state.ilan.description}</p>
+                            <p> {this.state.ilan.city}/{this.state.ilan.town}</p>
+                            <p> <b><h1>{this.state.ilan.price}</h1></b></p>
+                            <p><Button type="danger" size={"large"} href={"https://ozanaydin.herokuapp.com/"}>Buy</Button></p>
+                        </Card>
 
                     </div>
                 </Content>
@@ -85,4 +80,4 @@ class Ads extends React.Component {
     }
 }
 
-export default Ads;
+export default ShowAd;

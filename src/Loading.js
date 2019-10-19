@@ -17,7 +17,7 @@ class Loading extends React.Component {
                     left: '0',
                     height: '70px',
                     width: '100%',
-                    backgroundColor: '#96d9e7'
+                    backgroundColor: '#3F475F'
                 }}>
 
                     <div id="logo">
@@ -33,7 +33,7 @@ class Loading extends React.Component {
                     </div>
                 </Content>
                 <Footer style={{
-                    backgroundColor: '#96d9e7',
+                    backgroundColor: '#3F475F',
                     position: 'fixed',
                     left: '0',
                     height: '70px',
@@ -43,7 +43,7 @@ class Loading extends React.Component {
                     textAlign: 'center',
                     fontSize: '20px'
                 }}>
-                    <text style={{color: 'white'}}>Ozan Aydın</text>
+                    <text style={{color: 'white'}}>Ozan Aydın-DevAkademi2019</text>
                 </Footer>
             </Layout>
         );

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Ads from './Ads';
+import ShowAd from './ShowAd';
 import * as serviceWorker from './serviceWorker';
 import 'antd/dist/antd.css';
 
@@ -9,6 +10,7 @@ ReactDOM.render(
     <Router>
         <div>
             <Route exact path='/' component={Ads}/>
+            <Route path='/showAd/:id' component={ShowAd}/>
         </div>
     </Router>,
     document.getElementById('root'));

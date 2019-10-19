@@ -1,7 +1,7 @@
 import React from 'react';
-import {Table,Typography,Button} from 'antd';
+import {Table, Typography, Button} from 'antd';
 
-const { Text } = Typography;
+const {Text} = Typography;
 
 class AdsTable extends React.Component {
 
@@ -13,59 +13,61 @@ class AdsTable extends React.Component {
     render() {
         const columns = [
             {
-                title: 'id',
-                dataIndex: 'id',
-                key: 'id'
-            },{
-                title: 'title',
+                title: 'TITLE',
                 dataIndex: 'title',
                 key: 'title'
             },
             {
-                title: 'description',
-                dataIndex: 'description',
-                key: 'description'
-
-            },
-            {
-                title: 'price',
+                title: 'PRICE',
                 dataIndex: 'price',
                 key: 'price'
 
             },
             {
-                title: 'town',
+                title: 'TOWN',
                 dataIndex: 'town',
                 key: 'town'
 
             },
             {
-                title: 'city',
+                title: 'CITY',
                 dataIndex: 'city',
                 key: 'city'
 
+            },
+            {
+                title: 'ACTION',
+                dataIndex: 'action',
+                key: 'action',
+                fixed: 'right',
+                width: 100,
+
             }];
 
-        const data = this.state.ilan.map(element =>{
-            let id;
-            let title;
-            let description;
-            let price;
-            let town;
-            let city;
-
-            id =  <Text>{element.id}</Text>;
-            title =  <Text>{element.title}</Text>;
-            description =  <Text>{element.description}</Text>;
-            price =  <Text >{element.price}</Text>;
-            town =  <Text>{element.town}</Text>;
-            city =  <Text>{element.city}</Text>;
+        const data = this.state.ilan.map(element => {
 
 
-            return { id:id, description:description, title: title, price:price, town:town, city:city  };
+            let id = <Text>{element.id}</Text>;
+            let title = <Text>{element.title}</Text>;
+            let description = <Text>{element.description}</Text>;
+            let price = <Text>{element.price}</Text>;
+            let town = <Text>{element.town}</Text>;
+            let city = <Text>{element.city}</Text>;
+            const action = <Button type="primary" href={"/ShowAd/" + element.id}>Show</Button>;
+            return {
+                id: id,
+                description: description,
+                title: title,
+                price: price,
+                town: town,
+                city: city,
+                action: action
+            };
         });
 
         return (<Table columns={columns} dataSource={data} size={'small'} pagination={false}/>
         )
     }
-} export default AdsTable;
+}
+
+export default AdsTable;
