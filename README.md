@@ -28,5 +28,6 @@ Buna gerek kalmadan deploy edilmiş, çalışan projeye ulaşmak için:
 Böyle eğitici ve aynı zamanda keyifli bir organizasyonu sağladığı için tüm Sahibinden ailesine teşekkür ederim.
 
 Ozan Aydın
-ozanaydin.herokuapp.com
+
+http://ozanaydin.herokuapp.com
 
