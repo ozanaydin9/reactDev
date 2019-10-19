@@ -60,7 +60,9 @@ class Ads extends React.Component {
                 <Content style={{position: 'absolute', top: '70px', bottom: '70px', width: '100%', overflow: 'auto'}}>
                     <div style={{background: '#fff', padding: 24, minHeight: 280}}>
                         <AdsTable ilan={this.state.ilan}/>
-                        <Pagination onChange={this.handlePageClick}
+                        <Pagination style={{
+                            position: 'absolute', left:'37%'
+                        }} onChange={this.handlePageClick}
                                     defaultCurrent={this.state.page}
                                     total={this.state.total}/>
 
