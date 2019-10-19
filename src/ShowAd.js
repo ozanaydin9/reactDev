@@ -6,6 +6,8 @@ import { Card } from 'antd';
 
 const {Header, Content, Footer} = Layout;
 
+//Ads componentinde kullanıcının Show'a basmasıyla detaylı bilgileri gösteren class
+//tıklanılan Id bilgisini aktararak ilgili ilanın detaylı bir şekilde ant design CARD componentinde gösterilmesini sağlar
 class ShowAd extends React.Component {
 
     constructor(props) {

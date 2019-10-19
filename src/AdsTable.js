@@ -11,6 +11,7 @@ class AdsTable extends React.Component {
     }
 
     render() {
+        //Ant Design gösterilen verileri belirten kolonlarım
         const columns = [
             {
                 title: 'TITLE',
@@ -44,6 +45,7 @@ class AdsTable extends React.Component {
 
             }];
 
+        //gelen datayı kolonlara setleme işlemim
         const data = this.state.ilan.map(element => {
 
 
@@ -65,6 +67,7 @@ class AdsTable extends React.Component {
             };
         });
 
+        //Ads.js Content'imde render edilmek üzere return edilen Table componentim
         return (<Table columns={columns} dataSource={data} size={'small'} pagination={false}/>
         )
     }

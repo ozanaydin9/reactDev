@@ -6,6 +6,8 @@ import loadingImage from './assets/loadingimage.gif';
 
 const {Header, Content, Footer} = Layout;
 
+//Kullanıcıların veri yükleme işlemi esnasında boş ekran görmemesini sağlamak adına
+//Yükleme yapıldığını anlayabilecekleri Loading Componentim
 class Loading extends React.Component {
 
     render() {

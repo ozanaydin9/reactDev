@@ -15,10 +15,12 @@ class Ads extends React.Component {
         this.loadAdsFromServer = this.loadAdsFromServer.bind(this);
     }
 
+    //Component mount edildiğinde direk çağrılan method verileri serverdan yükleme işlemini yapan loadAdsFromServer'i çağırır
     componentDidMount() {
         this.loadAdsFromServer();
     }
 
+    //Pagination'dan aldığım selected verisine göre offset değerini set'leyip kullanıcının 10'arlı şekilde düzgün verileri görmesini sağladığım metod
     handlePageClick = selected => {
         this.setState({page: selected});
         this.setState({offset: (selected - 1) * 10}, () => {
@@ -26,6 +28,7 @@ class Ads extends React.Component {
         })
     };
 
+    //Servisten offset değerine göre verileri 10'arlı şekilde getiren fonksiyonum
     loadAdsFromServer() {
         this.setState({isLoading: true});
         fetch(`https://devakademi.sahibinden.com/api/auctions?offset=${this.state.offset}&size=10`)
@@ -57,8 +60,10 @@ class Ads extends React.Component {
 
 
                 </Header>
+                //AdsTable componentinden verilerimi Contentimde göstermemi sağlayan call
                 <Content style={{position: 'absolute', top: '70px', bottom: '70px', width: '100%', overflow: 'auto'}}>
                     <div style={{background: '#fff', padding: 24, minHeight: 280}}>
+
                         <AdsTable ilan={this.state.ilan}/>
                         <Pagination style={{
                             position: 'absolute', left:'37%'
