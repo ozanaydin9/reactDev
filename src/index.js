@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import Todo from './Todo';
+import Ads from './Ads';
 import * as serviceWorker from './serviceWorker';
 import 'antd/dist/antd.css';
 
 ReactDOM.render(
     <Router>
         <div>
-            <Route exact path='/' component={Todo} />
+            <Route exact path='/' component={Ads}/>
         </div>
     </Router>,
     document.getElementById('root'));

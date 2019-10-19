@@ -1,3 +1,3 @@
 export function backendUrl() {
-    return "back-end url yazılacak";
+    return "https://devakademi.sahibinden.com/";
 }
