@@ -17,6 +17,8 @@ class Ads extends React.Component {
 
     //Component mount edildiğinde direk çağrılan method verileri serverdan yükleme işlemini yapan loadAdsFromServer'i çağırır
     componentDidMount() {
+
+        
         this.loadAdsFromServer();
     }
 
